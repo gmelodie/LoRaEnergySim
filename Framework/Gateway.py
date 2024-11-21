@@ -4,7 +4,7 @@ import pandas as pd
 
 from Framework.LoRaPacket import UplinkMessage, DownlinkMetaMessage, DownlinkMessage
 from Framework.LoRaParameters import LoRaParameters
-from Simulations.GlobalConfig import *
+from GlobalConfig import *
 
 
 def required_snr(dr):

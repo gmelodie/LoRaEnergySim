@@ -1,4 +1,4 @@
-from Simulations.GlobalConfig import *
+from GlobalConfig import *
 from Framework import PropagationModel
 from Framework.Location import Location
 from Framework.Gateway import Gateway

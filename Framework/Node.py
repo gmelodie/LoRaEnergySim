@@ -11,7 +11,7 @@ from Framework.LoRaPacket import DownlinkMetaMessage
 from Framework.LoRaPacket import UplinkMessage
 from Framework.LoRaParameters import LoRaParameters
 from Framework.Location import Location
-from Simulations.GlobalConfig import *
+from GlobalConfig import *
 
 
 class NodeState(Enum):
@@ -501,12 +501,18 @@ class Node:
             self.current_state = new_state
 
     def energy_per_bit(self) -> float:
+        if self.packets_sent == 0:
+            return 0
         return self.total_energy_consumed() / (self.packets_sent * self.payload_size * 8)
 
     def transmit_related_energy_per_bit(self) -> float:
+        if self.packets_sent == 0:
+            return 0
         return self.transmit_related_energy_consumed() / (self.packets_sent * self.payload_size * 8)
 
     def transmit_related_energy_per_unique_bit(self) -> float:
+        if self.num_unique_packets_sent == 0:
+            return 0
         return self.transmit_related_energy_consumed() / (self.num_unique_packets_sent * self.payload_size * 8)
 
     def transmit_related_energy_consumed(self) -> float:
