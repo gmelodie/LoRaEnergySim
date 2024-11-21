@@ -24,14 +24,28 @@ pages={1-6},
 Other publications:
 
 ```
-G. Callebaut, G. Ottoy and L. V. d. Perre, "Optimizing Transmission of IoT Nodes in Dynamic Environments," 
+G. Callebaut, G. Ottoy and L. V. d. Perre, "Optimizing Transmission of IoT Nodes in Dynamic Environments,"
 2020 International Conference on Omni-layer Intelligent Systems (COINS), 2020, pp. 1-5, doi: 10.1109/COINS49042.2020.9191674.
 ```
 
 
-## How to use?
+## Usage
+0. Install requirements
+```bash
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+1. Define your configs in `GlobalConfig.py`
+2. Generate locations using `generate_locations.py` (don't forget to make `simulation.py` point to the new locations)
+3. Run the sim
+```bash
+python3 simulation.py
+```
+
+
+
 The source of the framework is located in the `Framework` folder.
-The `Simulations` folder contains some examples.
 
 ### General Workflow
 In order to compare different `settings/configurations`, it is imperative that the locations of the nodes are the same for all simulations.
@@ -40,7 +54,7 @@ Therefore, a file `generate_locations.py` is included in the examples.
 Workflow:
 - Define your the settings for a simulation environment, e.g., start spreading factor, simulation duration (real-time), in the [GlobalConfig](https://github.com/GillesC/LoRaEnergySim/blob/master/Simulations/GlobalConfig.py) file
 - Generate your locations see [here](#generate-node-locations). It will use the settings defined in the GlobalConfig file.
-- Create a `Simulation.py` file as detailed [here](#simulation).
+- Create a `simulation.py` file as detailed [here](#simulation).
 
 
 #### Generate Node locations
